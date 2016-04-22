@@ -13,7 +13,7 @@
 	XMLHttpRequest.prototype.open = function() {
 		if ( regex.test(arguments[1]) ) {
 			arguments[1] += "&limit=200";
-			console.log("MICH " + arguments[0] + " " + arguments[1] + " @ " + window.location.href );
+			console.log("Modified " + arguments[0] + " request to " + arguments[1]);
 		}	
 		open.apply(this, arguments);
 	};
