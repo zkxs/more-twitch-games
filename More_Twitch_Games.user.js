@@ -4,7 +4,7 @@
 // @downloadURL https://github.com/zkxs/more-twitch-games/raw/master/More_Twitch_Games.user.js
 // @description Increase maximum displayed followed games on Twitch.
 // @include     /^https?://api\.twitch\.tv/crossdomain/receiver.html(\?.*)?$/
-// @version     1
+// @version     1.0.1
 // @grant       none
 // @run-at document-start
 // ==/UserScript==
