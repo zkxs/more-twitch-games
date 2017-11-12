@@ -1,0 +1,6 @@
+# API keys and such
+*.secret
+
+# Build artifacts
+/web-ext-artifacts/
+/.web-extension-id

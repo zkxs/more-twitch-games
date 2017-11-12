@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "More Twitch Games",
-  "version": "1.0",
+  "version": "0.0.0",
 
   "description": "Increases the number of results shown in Twitch listings",
   "homepage_url": "https://github.com/zkxs/more-twitch-games",
