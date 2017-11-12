@@ -1,0 +1,33 @@
+{
+
+  "manifest_version": 2,
+  "name": "More Twitch Games",
+  "version": "1.0",
+
+  "description": "Increases the number of results shown in Twitch listings",
+  "homepage_url": "https://github.com/zkxs/more-twitch-games",
+
+  "applications": {
+    "gecko": {
+      "id": "more-twitch-games@michaelripley.net",
+      "strict_min_version": "56.0a1"
+    }
+  },
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "background": {
+    "scripts": [
+      "more-twitch-games.js"
+    ]
+  },
+  
+  "permissions": [
+    "*://api.twitch.tv/api/users/*/follows/games/*",
+    "webRequest",
+    "webRequestBlocking"
+  ]
+
+}
