@@ -24,6 +24,18 @@
     ]
   },
   
+  "content_scripts": [
+    {
+      "matches": ["*://go.twitch.tv/directory/following/games"],
+      "js": ["script-injector.js"],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "web_accessible_resources": [
+    "web_accessible_resources/*"
+  ],
+  
   "permissions": [
     "*://*.twitch.tv/*",
     "webRequest",

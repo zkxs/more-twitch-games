@@ -37,9 +37,9 @@ function newRequestListener(requestDetails) {
     const string = arrayBufferToString(buffer);
     
     try {
-      const object = JSON.parse(string);
+      const gqlQueries = JSON.parse(string);
       let modified = false;
-      for (const query of object) {
+      for (const query of gqlQueries) {
         if (query.operationName === "FollowingGames_CurrentUser") {
           query.variables.limit = 200;
           modified = true;
@@ -47,8 +47,8 @@ function newRequestListener(requestDetails) {
       }
       
       if (modified) {
-        console.log("Patching GQL request", requestDetails.method, requestDetails.url, object, "initiated by", requestDetails.originUrl);
-        requestDetails.requestBody.raw[0].bytes = stringToArrayBuffer(JSON.stringify(object));
+        console.log("Patching GQL request", requestDetails.method, requestDetails.url, gqlQueries, "initiated by", requestDetails.originUrl);
+        // requestDetails.requestBody.raw[0].bytes = stringToArrayBuffer(JSON.stringify(gqlQueries)); // disabled until https://bugzilla.mozilla.org/show_bug.cgi?id=1376155 is a thing
       }
       
     } catch (error) {
@@ -62,6 +62,6 @@ function newRequestListener(requestDetails) {
 }
 
 browser.webRequest.onBeforeRequest.addListener(legacyRequestListener, {urls: [legacyMatchPattern]}, ["blocking"]);
-browser.webRequest.onBeforeRequest.addListener(newRequestListener, {urls: [newMatchPattern]}, ["blocking", "requestBody"]);
+// browser.webRequest.onBeforeRequest.addListener(newRequestListener, {urls: [newMatchPattern]}, ["blocking", "requestBody"]); // no need to enable this as it can't do anything useful yet
 
 console.log("Finished loading more-twitch-games.js");
